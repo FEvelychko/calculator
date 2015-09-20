@@ -8,17 +8,16 @@
     html {
         height: 100%;
         background: white;
-        background: radial-gradient(circle, #fff 20%, #ccc);
+        background: radial-gradient(circle, gray 20%, #ccc);
         background-size: cover;
     }
-    #calculator {
+    .calculator {
         width: 325px;
         height: auto;
         margin: 100px auto;
         padding: 20px 20px 9px;
-        background: #9dd2ea;
-        background: linear-gradient(#9dd2ea, #8bceec);
-        border-radius: 3px;
+        background: silver;
+        border-radius: 5px;
     }
     .top span.clear {
         float: left;
