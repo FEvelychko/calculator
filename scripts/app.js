@@ -27,9 +27,17 @@
                     this.getValue(value)}.bind(this, x)
                 );
             }
+            if(this.span[x].innerHTML === "="){
+                this.span[x].addEventListener('click', this.calculate.bind(this));
+            }
         }
         return this;
 
+    };
+
+    Calculator.prototype.calculate = function(){
+        this.result = eval(this.screen.innerHTML);
+        this.screen.innerHTML = this.result;
     };
 
     Calculator.prototype.getValue = function(symbol){
