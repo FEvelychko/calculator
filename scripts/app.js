@@ -9,7 +9,7 @@
         this.spanTop = document.getElementById('top').children;
         this.screen = document.querySelector('.screen');
         this.screen.innerHTML = "0";
-    return this;
+        return this;
 
     };
 
@@ -28,12 +28,16 @@
             if (this.checkValue(this.span[x].innerHTML)) {
                 this.span[x].addEventListener('click', function(x){
                     var value = this.span[x].innerHTML;
-                    this.getValue(value), false}.bind(this, x)
-                );
+                    this.getValue(value)}.bind(this, x), false);
             }
             if(this.span[x].innerHTML === "="){
                 this.span[x].addEventListener('click', this.calculate.bind(this), false);
             }
+            /*if(this.span[x].innerHTML === "0"){
+                this.span[x].addEventListener('click', function(x) {
+                    var value = this.span[x].innerHTML;
+                    this.addZero().bind(this, x), false});
+            }*/
         }
         for(var y = 0; y < this.spanTop.length; y++){
             if(this.spanTop[y].innerHTML === "C"){
@@ -45,20 +49,13 @@
     };
 
     Calculator.prototype.cancelValue = function(){
-        var kozel = this.screen.innerHTML = "0";
+        this.screen.innerHTML = "0";
         return this;
 
     };
 
-    /*Calculator.prototype.evaluate = function(values){
-        if(arguments[0] !== ""){
-            console.log(arguments[0]);
-        };
-    };*/
-
     Calculator.prototype.calculate = function(){
         this.result = eval(this.screen.innerHTML);
-        //debugger;
         this.screen.innerHTML = this.result;
         return this;
 
@@ -70,7 +67,16 @@
 
     };
 
+    /*Calculator.prototype.addZero = function(){
+        this.screen.innerHTML += "0";
+        return this;
+
+    };*/
+
     Calculator.prototype.showOnScreen = function(value){
+        if(this.screen.innerHTML === "0"){
+            this.screen.innerHTML = "";
+        }
         this.screen.innerHTML += value;
         return this;
 
@@ -78,12 +84,6 @@
 
     var calculator = new Calculator();
     calculator.setEvent();
-
-
-
-
-
-
 
 
 
